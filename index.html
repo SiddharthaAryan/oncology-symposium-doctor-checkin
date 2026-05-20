@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Life Savers | MMI Narayana Health</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(11, 78, 162, 0.08), transparent 36%),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 45%, #f7faff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #0f1b33;
+      padding: 18px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 660px;
+      text-align: center;
+    }
+
+    .icon-box {
+      width: 116px;
+      height: 116px;
+      margin: 0 auto 38px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #0b4ea2, #073b7f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 24px 48px rgba(11, 78, 162, 0.25);
+    }
+
+    .plus {
+      color: white;
+      font-size: 72px;
+      font-weight: 300;
+      line-height: 1;
+      transform: translateY(-2px);
+    }
+
+    h1 {
+      min-height: 138px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(46px, 8vw, 72px);
+      line-height: 1.05;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #101a31;
+      margin-bottom: 22px;
+      text-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+    }
+
+    .cursor {
+      border-right: 4px solid #101a31;
+      animation: blink 0.8s infinite;
+      padding-right: 4px;
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: #101a31; }
+      50% { border-color: transparent; }
+    }
+
+    .subtitle {
+      font-size: 25px;
+      font-weight: 800;
+      color: #273954;
+      margin-bottom: 44px;
+      letter-spacing: 0.3px;
+    }
+
+    .form-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid #dce6f5;
+      border-radius: 30px;
+      padding: 28px 26px 28px;
+      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.09);
+      backdrop-filter: blur(18px);
+    }
+
+    .field {
+      text-align: left;
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #4a5d78;
+      text-transform: uppercase;
+      margin: 0 0 10px 2px;
+    }
+
+    input {
+      width: 100%;
+      min-height: 76px;
+      border: 1.5px solid #d5dfec;
+      border-radius: 28px;
+      background: #fbfdff;
+      outline: none;
+      padding: 0 28px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: 800;
+      color: #1e293b;
+      letter-spacing: 0.5px;
+      transition: 0.25s ease;
+    }
+
+    input::placeholder {
+      color: #9aa8ba;
+      opacity: 1;
+    }
+
+    input:focus {
+      border-color: #0b4ea2;
+      background: #ffffff;
+      box-shadow: 0 0 0 5px rgba(11, 78, 162, 0.10);
+    }
+
+    button {
+      width: 100%;
+      min-height: 86px;
+      border: none;
+      border-radius: 28px;
+      margin-top: 2px;
+      color: white;
+      cursor: pointer;
+      background: linear-gradient(100deg, #0b57a7 0%, #204b82 47%, #c91442 100%);
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      box-shadow: 0 22px 44px rgba(20, 74, 132, 0.28);
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 28px 54px rgba(20, 74, 132, 0.35);
+    }
+
+    button:disabled {
+      opacity: 0.72;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .status {
+      display: none;
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .success {
+      display: block;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+    }
+
+    .error {
+      display: block;
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    .footer {
+      margin-top: 22px;
+      color: #7b8aa0;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 12px;
+        align-items: flex-start;
+      }
+
+      .icon-box {
+        width: 96px;
+        height: 96px;
+        border-radius: 24px;
+        margin-bottom: 30px;
+      }
+
+      .plus {
+        font-size: 62px;
+      }
+
+      h1 {
+        min-height: 108px;
+        font-size: 44px;
+      }
+
+      .subtitle {
+        font-size: 21px;
+        margin-bottom: 34px;
+      }
+
+      .form-card {
+        padding: 24px 20px;
+      }
+
+      label {
+        font-size: 15px;
+      }
+
+      input {
+        min-height: 70px;
+        font-size: 22px;
+        border-radius: 24px;
+      }
+
+      button {
+        min-height: 78px;
+        font-size: 22px;
+        letter-spacing: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <div class="icon-box">
+      <div class="plus">+</div>
+    </div>
+
+    <h1><span id="typedText"></span><span class="cursor"></span></h1>
+
+    <p class="subtitle">Please enter your details to check in</p>
+
+    <section class="form-card">
+      <form id="checkinForm">
+        <div class="field">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Doctor Name"
+            required
+            minlength="2"
+          />
+        </div>
+
+        <div class="field">
+          <label for="contactNumber">Contact Number</label>
+          <input
+            id="contactNumber"
+            type="tel"
+            placeholder="WhatsApp / Mobile Number"
+            required
+            minlength="10"
+          />
+        </div>
+
+        <div class="field">
+          <label for="hospitalName">Hospital Name (Optional)</label>
+          <input
+            id="hospitalName"
+            type="text"
+            placeholder="Hospital Name (Optional)"
+          />
+        </div>
+
+        <button id="submitBtn" type="submit">Check In</button>
+
+        <div id="statusBox" class="status"></div>
+      </form>
+    </section>
+
+    <p class="footer">
+      MMI Narayana Health | Oncology Symposium
+    </p>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+    import {
+      getFirestore,
+      doc,
+      setDoc,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDSAaXpkqFEAzpltplD6CP89Z5ahCSO",
+      authDomain: "mmi-oncology-symposium-checkin.firebaseapp.com",
+      projectId: "mmi-oncology-symposium-checkin",
+      storageBucket: "mmi-oncology-symposium-checkin.firebasestorage.app",
+      messagingSenderId: "52652770400",
+      appId: "1:52652770400:web:39807f091a699127eeef05"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const typedText = document.getElementById("typedText");
+    const text = "Welcome Life Savers!";
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        typedText.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 85);
+      }
+    }
+
+    typeWriter();
+
+    const form = document.getElementById("checkinForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const statusBox = document.getElementById("statusBox");
+
+    function cleanPhoneNumber(value) {
+      return value.replace(/\D/g, "");
+    }
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const rawContact = document.getElementById("contactNumber").value.trim();
+      const contactNumber = cleanPhoneNumber(rawContact);
+      const hospitalName =
+        document.getElementById("hospitalName").value.trim() || "Not Provided";
+
+      statusBox.className = "status";
+      statusBox.textContent = "";
+
+      if (name.length < 2) {
+        statusBox.className = "status error";
+        statusBox.textContent = "Please enter a valid name.";
+        return;
+      }
+
+      if (contactNumber.length < 10) {
+        statusBox.className = "status error";
+        statusBox.textContent = "Please enter a valid contact number.";
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "SUBMITTING";
+
+      try {
+        const documentId = "DOC_" + contactNumber;
+
+        await setDoc(doc(db, "doctorCheckins", documentId), {
+          name: name,
+          contactNumber: contactNumber,
+          hospitalName: hospitalName,
+          eventName: "Oncology Symposium 30th",
+          submittedAt: serverTimestamp(),
+          createdDate: new Date().toISOString(),
+          userAgent: navigator.userAgent
+        });
+
+        statusBox.className = "status success";
+        statusBox.innerHTML =
+          "Check-in successful.<br>Welcome to the Oncology Symposium.";
+
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        statusBox.className = "status error";
+        statusBox.textContent =
+          "Something went wrong. This number may already be checked in.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "CHECK IN";
+      }
+    });
+  </script>
+</body>
+</html>
